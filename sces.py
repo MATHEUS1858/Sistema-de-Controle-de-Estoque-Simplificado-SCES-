@@ -6,7 +6,7 @@ produtos = [
 ]
 
 def travar_tela():
-    input("Pressione <ENTER> para continuar...")
+    input("\nPressione <ENTER> para continuar...")
 
 def adicionar_produto():
     id = input("Digite o ID da peça: ")
@@ -24,7 +24,7 @@ def listar_produtos():
     travar_tela()
 
 def buscar_por_id():
-    buscar = input("Buscar Produto por ID: ")
+    buscar = input("Buscar produto por ID: ")
     for i in range(len(produtos)):
         if buscar == produtos[i][0]:
             print(produtos[i])
@@ -32,8 +32,11 @@ def buscar_por_id():
 
 def atualizar_estoque():
     global produtos
-    posicao = input("Digite a posição no eixo y: ")
-    produtos[posicao][2] = input("Digite a quantidade de produtos presentes: ")
+    buscar = input("Coloque o ID do produto: ")
+    for i in range(len(produtos)):
+        if buscar == produtos[i][0]:
+            nova_quantidade = input("Atualize seu estoque: ")
+            produtos[i][2] = nova_quantidade
     travar_tela()
 
 while rodando == True:
@@ -48,5 +51,5 @@ while rodando == True:
         buscar_por_id()
     elif opcao == "4":
         atualizar_estoque()
-    else:
+    elif opcao == "5":
         rodando = False
