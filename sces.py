@@ -5,6 +5,9 @@ produtos = [
     ["89243", "Engrenagem Helicoidal", "5", "2"],
 ]
 
+def travar_tela():
+    input("Pressione <ENTER> para continuar...")
+
 def adicionar_produto():
     id = input("Digite o ID da peça: ")
     nomedapeca = input("Digite o nome da peça: ")
@@ -12,22 +15,26 @@ def adicionar_produto():
     localizacao = input("Digite a localização da peça: ")
     novoproduto = [id, nomedapeca, quantidade, localizacao]
     produtos.append(novoproduto)
-    print("Peça adicionada com sucesso.")
+    print("Produto adicionado com sucesso.")
+    travar_tela()
 
 def listar_produtos():
     for i in range(len(produtos)):
         print(produtos[i])
+    travar_tela()
 
 def buscar_por_id():
     buscar = input("Buscar Produto por ID: ")
     for i in range(len(produtos)):
         if buscar == produtos[i][0]:
             print(produtos[i])
+    travar_tela()
 
 def atualizar_estoque():
     global produtos
     posicao = input("Digite a posição no eixo y: ")
     produtos[posicao][2] = input("Digite a quantidade de produtos presentes: ")
+    travar_tela()
 
 while rodando == True:
     print("\nBem vindo ao Sistema de Controle de Estoque Simplificado (SCES). Selecione uma opção:")
